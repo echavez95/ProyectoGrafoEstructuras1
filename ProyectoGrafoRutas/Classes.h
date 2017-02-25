@@ -67,7 +67,7 @@ class PilaPaquetes
         return false;
     }
 
-    void ImprimirPila()
+    void VerPila()
     {
         if(Vacia()){
             cout<<"Pila Vacia"<<endl;
@@ -79,7 +79,7 @@ class PilaPaquetes
                 {
                     cout<<nodoTemp->Value<<endl;
                     nodoTemp=nodoTemp->NextPaquete;
-                }while(nodoTemp->NextPaquete!=0);
+                }while(nodoTemp!=0);
             }
     }
 
@@ -91,12 +91,14 @@ class Ciudad
     public:
         PilaPaquetes pilaCiudad;
         string nombre;
-    Ciudad()
-    {
-    }
+
     Ciudad(string nombreC)
     {
         nombre=nombreC;
+    }
+
+    Ciudad()
+    {
     }
 };
 
