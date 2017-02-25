@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1487980775 source:c:\users\eliezer\documents\estructura de datos\proyectografoestructuras1\proyectograforutas\main.cpp
+	<iostream>
+	<stdlib.h>
+	"ClassConfigManager.h"
+
+1487982373 c:\users\eliezer\documents\estructura de datos\proyectografoestructuras1\proyectograforutas\classes.h
+	<iostream>
+
+1487980019 c:\users\eliezer\documents\estructura de datos\proyectografoestructuras1\proyectograforutas\classfilemanager.h
+	<fstream>
+	<iostream>
+	<sstream>
+	<string>
+	"Classes.h"
+
+1487981348 c:\users\eliezer\documents\estructura de datos\proyectografoestructuras1\proyectograforutas\classconfigmanager.h
+	<fstream>
+	<iostream>
+	<sstream>
+	<string>
+	"Classes.h"
+
