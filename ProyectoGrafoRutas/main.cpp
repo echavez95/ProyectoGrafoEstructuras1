@@ -9,14 +9,26 @@ int main()
     ConfigManager fmHandler;
     fmHandler.leerArchivo();
     fmHandler.listaRutas.imprimirListaRutas();
+
     cout << endl;
-    cout << "Imprmir la pila de una ciudad: Ciudad SPS" << endl;
-    Ciudad SPS("San Pedro Sula");
-    SPS.pilaCiudad.Push(1);
-    SPS.pilaCiudad.Push(2);
-    SPS.pilaCiudad.Push(3);
-    SPS.pilaCiudad.Push(4);
-    SPS.pilaCiudad.VerPila();
+    cout << "Imprmir la lista de ciudades" << endl;
+    fmHandler.imprimirArregloCiudades();
+
+    Ciudad sanPedro("San Pedro Sula");
+    sanPedro.pilaPaquetesCiudad.Push(1);
+    sanPedro.pilaPaquetesCiudad.Push(2);
+    sanPedro.pilaPaquetesCiudad.Push(3);
+    sanPedro.pilaPaquetesCiudad.Push(4);
+    sanPedro.pilaPaquetesCiudad.Push(5);
+    cout << endl;
+    cout << "Ver la pila de Ciudad SPS" << endl;
+    sanPedro.pilaPaquetesCiudad.VerPila();
+    cout << endl;
+    cout <<"Retorna sacar paqute: "<<endl;
+    cout <<sanPedro.sacarPaquete(5)<<endl;
+    cout << endl;
+    cout << "Ver la pila de Ciudad SPS despues de sacar paquete" << endl;
+    sanPedro.pilaPaquetesCiudad.VerPila();
     system("pause");
     return 0;
 }

@@ -47,14 +47,15 @@ class PilaPaquetes
         }
         else
             {
+                int retorno;
                 Paquete* nodoTemp;
-                int valor=Tope->Value;
+                retorno=Tope->Value;
 
                 nodoTemp=Tope;
                 Tope=Tope->NextPaquete;
 
                 delete nodoTemp;
-                return valor;
+                return retorno;
             }
     }
 
@@ -85,11 +86,10 @@ class PilaPaquetes
 
 };
 
-
 class Ciudad
 {
     public:
-        PilaPaquetes pilaCiudad;
+        PilaPaquetes pilaPaquetesCiudad;
         string nombre;
 
     Ciudad(string nombreC)
@@ -100,6 +100,63 @@ class Ciudad
     Ciudad()
     {
     }
+
+    void ingresarPaquete(int valorPaquete)
+    {
+        pilaPaquetesCiudad.Push(valorPaquete);
+    }
+
+    void verPilaPaquetes()
+    {
+        pilaPaquetesCiudad.VerPila();
+    }
+
+    int sacarPaquete(int valorBuscar)
+    {
+        Paquete* paqueteTemp;
+        int resultado =NULL;
+        if(pilaPaquetesCiudad.Tope->Value==valorBuscar){
+            resultado=pilaPaquetesCiudad.Pop();
+            return resultado;
+        }else
+        {
+            PilaPaquetes pilaTemporal;
+            /*int a = pilaPaquetesCiudad.Pop(); *///debug
+            pilaTemporal.Push(pilaPaquetesCiudad.Pop());
+            paqueteTemp = pilaPaquetesCiudad.Tope;
+            /*a=pilaPaquetesCiudad.Tope->Value;*///debug
+            do{
+                /*a=paqueteTemp->Value;*///debug
+                if(paqueteTemp->Value==valorBuscar){
+                    resultado = pilaPaquetesCiudad.Pop();
+                    break;
+                }
+                pilaTemporal.Push(pilaPaquetesCiudad.Pop());
+                paqueteTemp=pilaPaquetesCiudad.Tope;
+            }while(pilaPaquetesCiudad.Vacia()!=true);
+            /*Seccion para debugguear*/
+            /*
+            cout<<"Pila Paquetes Ciudad"<<endl;
+            pilaPaquetesCiudad.VerPila();
+            cout<<"Pila Temporal"<<endl;
+            pilaTemporal.VerPila();
+            */
+            do
+            {
+                pilaPaquetesCiudad.Push(pilaTemporal.Pop());
+            }while(pilaTemporal.Vacia()!=true);
+
+            /*Seccion para debugguear*/
+            /*
+            cout<<"Pila Paquetes Ciudad"<<endl;
+            pilaPaquetesCiudad.VerPila();
+            cout<<"Pila Temporal"<<endl;
+            pilaTemporal.VerPila();
+            */
+           return resultado;
+        }
+    }
+
 };
 
 class Ruta{
